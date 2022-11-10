@@ -1,0 +1,18 @@
+spring:
+    cloud:
+        stream:
+            kafka:
+                binder:
+                    brokers: kafka:9092
+                    auto-create-topics: true
+                    configuration.auto.offset.reset: latest
+            bindings:
+                epgChannelDataProcessor-in-0:
+                    destination: epg-channel-data-v1
+            function:
+                autodetect: false
+
+
+# Stream Bridge Channels configuration
+channels:
+    epg-channel-data: epgChannelDataProcessor-in-0

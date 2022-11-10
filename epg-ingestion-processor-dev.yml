@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    stream:
+          function:
+              definition: epgChannelDataProcessor
+          kafka:
+              binder:
+                  brokers: kafka:9092
+                  auto-create-topics: true
+                  configuration.auto.offset.reset: latest
+          default:
+            consumer:
+              concurrency: 2
+          bindings:
+              epgChannelDataProcessor-in-0:
+                  destination: epg-channel-data-v1
+                  group: epg-channel-data-processor
+                  consumer:
+                    concurrency: 10
+                    max-attempts: 3
+              epgChannelDataProcessor-out-0:
+                  destination: data-result-v1
