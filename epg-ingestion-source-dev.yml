@@ -3,7 +3,7 @@ spring:
         stream:
             kafka:
                 binder:
-                    brokers: kafka:9092
+                    brokers: ${KAFKA_HOST}:${KAFKA_HOST_PORT}
                     auto-create-topics: true
                     configuration.auto.offset.reset: latest
             bindings:
