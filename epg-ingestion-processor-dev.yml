@@ -5,7 +5,7 @@ spring:
               definition: epgChannelDataProcessor
           kafka:
               binder:
-                  brokers: ${KAFKA_HOST}:${KAFKA_HOST_PORT}
+                  brokers: ${KAFKA_HOST:kafka}:${KAFKA_HOST_PORT:29092}
                   auto-create-topics: true
                   configuration.auto.offset.reset: latest
           default:
